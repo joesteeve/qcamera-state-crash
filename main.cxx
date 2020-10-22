@@ -37,7 +37,8 @@ public:
     if (state == QCamera::LoadedState) {}
 
     if (state == QCamera::UnloadedState) {
-      QTimer::singleShot(1, this, &Camera::destroy_camera);
+      //QTimer::singleShot(1, this, &Camera::destroy_camera);
+      destroy_camera();
     }
   }
 
