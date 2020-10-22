@@ -33,9 +33,6 @@ public:
   void on_state_change(QCamera::State state)
   {
     qInfo() << "State change: " << state;
-
-    if (state == QCamera::LoadedState) {}
-
     if (state == QCamera::UnloadedState) {
       //QTimer::singleShot(1, this, &Camera::destroy_camera);
       destroy_camera();
@@ -45,13 +42,10 @@ public:
   void on_status_change(QCamera::Status status)
   {
     qInfo() << "Status change: " << status;
-
     if (status == QCamera::LoadedStatus) {
       qInfo() << "--- Unloading ---";
       m_camera->unload();
     }
-
-    if (status == QCamera::UnloadedStatus) {}
   }
 
   void destroy_camera()
